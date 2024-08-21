@@ -6,9 +6,13 @@ import PayCard from "../../components/cards/PayCard";
 import BasketCard from "../../components/cards/BasketCard";
 
 const Basket = () => {
-  const [basket, setBasket] = useState(
-    JSON.parse(localStorage.getItem("basket")) || []
-  );
+  var _basket = "[]";
+
+  if (typeof window !== "undefined") {
+    _basket = localStorage.getItem("basket");
+  }
+
+  const [basket, setBasket] = useState(JSON.parse(_basket) || []);
 
   let total = basket?.map((item) => item.count * item.price);
 
@@ -70,7 +74,9 @@ const Basket = () => {
     );
   };
 
-  localStorage.setItem("basket", JSON.stringify(basket));
+  if (typeof window !== "undefined") {
+    localStorage.setItem("basket", JSON.stringify(basket));
+  }
 
   return (
     <div className="mt-32 mb-24 flex-col sm:flex-row flex justify-center">

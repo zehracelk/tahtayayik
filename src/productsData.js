@@ -3,7 +3,7 @@ import gee from "./images/ghee2.jpeg";
 import white from "./images/white2.jpg";
 import old from "./images/oldcheese2.jpg";
 import yayik from "./images/yayik2.jpg";
-import tulum from "./images/tulum2.jpeg";
+import tulum from './images/tulum2.jpeg'
 import civil from "./images/civil.jpeg";
 import green from "./images/greencheese.jpeg";
 import kusburnu from "./images/roseship.webp";

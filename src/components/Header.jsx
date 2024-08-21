@@ -5,9 +5,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { GoSearch } from "react-icons/go";
 import { TfiBag } from "react-icons/tfi";
-import { FaRegTrashCan } from "react-icons/fa6";
-import { FaRegArrowAltCircleDown } from "react-icons/fa";
-import { FaRegArrowAltCircleUp } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdCurrencyLira } from "react-icons/md";
 import { useRouter } from "next/navigation";
@@ -15,7 +12,12 @@ import { useRouter } from "next/navigation";
 const Header = () => {
   const router = useRouter();
   const [text, setText] = useState();
-  const basket = JSON.parse(localStorage.getItem("basket"));
+  //
+  var _basket = "[]";
+  if (typeof window !== "undefined") {
+    _basket = localStorage.getItem("basket");
+  }
+  const basket = JSON.parse(_basket);
 
   return (
     <div className="w-full mx-auto rounded-sm bg-white z-50 fixed top-0 mb-10 shadow-lg">
@@ -84,16 +86,16 @@ const Header = () => {
                     <tbody>
                       {basket?.map((item, index) => (
                         <tr className="border-b border-white" key={index}>
-                          <td className=" flex justify-start rounded-md">
+                          <td className="flex justify-start rounded-md">
                             <Image src={item?.image} width={80} height={60} />
                           </td>
 
-                          <td className=" text-start cursor-pointer hover:underline">
+                          <td className="text-start cursor-pointer hover:underline">
                             <Link href={`${item.id}`}>
                               <p className="text-sm">{item.productName}</p>
                             </Link>
                           </td>
-                          <td className=" text-start ">
+                          <td className="text-start ">
                             <div className="flex text-sm">
                               {item.price}
                               <MdCurrencyLira className="mt-1" />
@@ -124,11 +126,9 @@ const Header = () => {
             />
             <button
               type="button"
-              onClick={
-                () => {
+              onClick={() => {
                 router.push(`/search?text=${text}`);
-              }
-              }
+              }}
               onKeyUp={() => {
                 router.push(`/search?text=${text}`);
               }}

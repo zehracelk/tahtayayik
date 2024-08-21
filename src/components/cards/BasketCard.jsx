@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import Image from "next/image";
 import { FaRegTrashCan } from "react-icons/fa6";
@@ -54,7 +56,7 @@ const BasketCard = ({ countDown, countUp, handleRemove, basket }) => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> 
     </div>
   );
 };
