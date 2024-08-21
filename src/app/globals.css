@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Montserrat:wght@100&family=Nanum+Gothic&family=Ubuntu:wght@300&display=swap');
+
+@font-face{
+  font-family: 'Barlow', sans-serif;
+  font-style: Regular;
+  font-weight: 400;
+  src: 
+    url('https://fonts.googleapis.com/css2?family=Barlow&family=Montserrat:wght@100&family=Nanum+Gothic&family=Ubuntu:wght@300&display=swap'),
+   
+}
+
+.fix {
+    background-image: url(../images/fix.jpg);
+}
+
+.swiper-button-next , .swiper-button-prev {
+  color: dimgrey !important;
+}
+
